@@ -30,8 +30,9 @@ export const Stepthree = (props) => {
 
   const validateInput = () => {
     const errors = {};
-    if (values.dateofBirth.length == 0) {
+    if (!values.profileImage?.trim() && !imgUrl) {
       errors.dateofBirth = "Please select a date.";
+      errors.profileImage = "Please upload a profile image.";
     } else {
       const today = new Date();
       const todays = new Date(values.dateofBirth);
@@ -76,7 +77,7 @@ export const Stepthree = (props) => {
     localStorage.removeItem("Stepthree");
   }, []);
   const shouldDisabledButton = () => {
-    return values.dateofBirth === 0 || values.profileImage == null;
+    return !values.dateofBirth?.trim() || !imgUrl;
   };
   console.log("haha", values);
   console.log("hehe", imgUrl);
@@ -87,7 +88,7 @@ export const Stepthree = (props) => {
         <div className="container">
           <div className="formheader">
             <div className="Mainimage">
-              <img src="./Main2.jpg" />
+              <img src="./Main2.jpg" alt="join" />
             </div>
             <div className="formtitle">Join Us!</div>
             <div className="formtitle1">
@@ -140,6 +141,7 @@ export const Stepthree = (props) => {
               ) : (
                 <div>
                   <img
+                    alt="turshilt"
                     style={{
                       width: "100%",
                       height: "150px",
