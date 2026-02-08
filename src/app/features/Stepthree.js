@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 const addSteponeValuesLocalStorage = (values) => {
   localStorage.setItem("Stepthree", JSON.stringify(values));
@@ -88,7 +89,7 @@ export const Stepthree = (props) => {
         <div className="container">
           <div className="formheader">
             <div className="Mainimage">
-              <img src="./Main2.jpg" alt="join" />
+              <Image src="./Main2.jpg" alt="join" />
             </div>
             <div className="formtitle">Join Us!</div>
             <div className="formtitle1">
@@ -140,7 +141,7 @@ export const Stepthree = (props) => {
                 </div>
               ) : (
                 <div>
-                  <img
+                  <Image
                     alt="turshilt"
                     style={{
                       width: "100%",

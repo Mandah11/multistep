@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { FormInput } from "../_components/form-input";
+import Image from "next/image";
 
 const checkIfinputHasSpecialCharacters = (string) => {
   return /[!@#$%^&*(),.?":{}<>]/.test(string);
@@ -83,7 +84,7 @@ export const Stepone = (props) => {
         <div className="container">
           <div className="formheader">
             <div className="Mainimage">
-              <img src="./Main2.jpg" />
+              <Image src="./Main2.jpg" alt="join us" />
             </div>
             <div className="formtitle">Join Us!</div>
             <div className="formtitle1">
