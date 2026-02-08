@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const addSteponeValuesLocalStorage = (values) => {
   localStorage.setItem("Stepthree", JSON.stringify(values));
 };
@@ -44,7 +44,7 @@ export const Stepthree = (props) => {
       }
 
       if (age < 18) {
-        errors.dateofBirth = "error";
+        errors.dateofBirth = "You must be at least 18 years old.";
       }
     }
     if (values.profileImage == 0) {
@@ -72,7 +72,9 @@ export const Stepthree = (props) => {
       setImgUrl(URL.createObjectURL(file));
     }
   };
-
+  useEffect(() => {
+    localStorage.removeItem("Stepthree");
+  }, []);
   const shouldDisabledButton = () => {
     return values.dateofBirth === 0 || values.profileImage == null;
   };
@@ -136,15 +138,36 @@ export const Stepthree = (props) => {
                   </label>
                 </div>
               ) : (
-                <img
-                  style={{
-                    width: "100%",
-                    height: "150px",
-                    borderRadius: "10px",
-                    border: "none",
-                  }}
-                  src={imgUrl ? imgUrl : values.profileImage}
-                />
+                <div>
+                  <img
+                    style={{
+                      width: "100%",
+                      height: "150px",
+                      borderRadius: "10px",
+                      border: "none",
+                    }}
+                    src={imgUrl ? imgUrl : values.profileImage}
+                  />
+                  <div
+                    style={{
+                      width: "28px",
+                      height: "26px",
+                      backgroundColor: "black",
+                      color: "white",
+                      position: "relative",
+                      top: "-140px",
+                      left: "85%",
+                      borderRadius: "50%",
+                      cursor: "pointer",
+                      alignItems: "center",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                    onClick={() => setImgUrl(null)}
+                  >
+                    x
+                  </div>
+                </div>
               )}
             </div>
             {errorstate && (

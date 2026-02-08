@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FormInput } from "../_components/form-input";
 
 const checkIfinputHasSpecialCharacters = (string) => {
@@ -14,19 +14,20 @@ const addSteponeValuesLocalStorage = (values) => {
 };
 export const Stepone = (props) => {
   const { handleNextStep } = props;
-
   const getSteponeValuesFromLocalStorege = () => {
-    const values = localStorage.getItem("Stepone");
-    if (values) {
-      return JSON.parse(values);
-    } else {
-      return {
-        firstname: "",
-        lastname: "",
-        username: "",
-      };
+    if (typeof window === "undefined") {
+      return { firstname: "", lastname: "", username: "" };
     }
+
+    const values = localStorage.getItem("Stepone");
+    return values
+      ? JSON.parse(values)
+      : { firstname: "", lastname: "", username: "" };
   };
+  useEffect(() => {
+    localStorage.removeItem("Stepone");
+  }, []);
+
   const [values, setValues] = useState(getSteponeValuesFromLocalStorege());
   const handleinput = (event) => {
     const newObj = { ...values, [event.target.name]: event.target.value };
