@@ -101,7 +101,7 @@ export const Steptwo = (props) => {
         <div className="container">
           <div className="formheader">
             <div className="Mainimage">
-              <Image src="./Main2.jpg" alt="join us" />
+              <Image src="/Main2.jpg" alt="join us" width={38} height={38} />
             </div>
             <div className="formtitle">Join Us!</div>
             <div className="formtitle1">

@@ -89,7 +89,7 @@ export const Stepthree = (props) => {
         <div className="container">
           <div className="formheader">
             <div className="Mainimage">
-              <Image src="./Main2.jpg" alt="join" />
+              <Image src="/Main2.jpg" alt="join" width={38} height={38} />
             </div>
             <div className="formtitle">Join Us!</div>
             <div className="formtitle1">
@@ -143,6 +143,9 @@ export const Stepthree = (props) => {
                 <div>
                   <Image
                     alt="turshilt"
+                    width={260}
+                    height={150}
+                    unoptimized
                     style={{
                       width: "100%",
                       height: "150px",
